@@ -3,90 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy - Software Update: Apps Updates</title>
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --accent-bg: #eff6ff;
+            --accent-border: #bfdbfe;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            line-height: 1.6;
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
+            line-height: 1.65;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            padding: 24px 16px;
         }
-        h1, h2 {
-            color: #111;
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
-        h1 {
+
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: 40px 32px;
+        }
+
+        header h1 {
             font-size: 2rem;
-            margin-bottom: 0.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.025em;
         }
-        p, ul {
-            margin-bottom: 1.2rem;
+
+        header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
         }
-        ul {
-            padding-left: 1.2rem;
+
+        .meta-info {
+            display: inline-flex;
+            gap: 16px;
+            margin-top: 16px;
+            font-size: 0.875rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
         }
-        .date {
-            color: #777;
-            margin-bottom: 2rem;
+
+        .content {
+            padding: 32px;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: #0f172a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #1e293b;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-muted);
+            font-size: 0.975rem;
+        }
+
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--text-muted);
+            font-size: 0.975rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: var(--accent-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .permission-table th, .permission-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .permission-table th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .permission-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .code-tag {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            border: 1px solid #cbd5e1;
+        }
+
+        .sdk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .sdk-card {
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            border-radius: 8px;
+            background: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sdk-card span {
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.9rem;
+        }
+
+        .sdk-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .sdk-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .contact-box p {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            border-top: 1px solid var(--border-color);
+            background-color: #f8fafc;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 28px 20px;
+            }
+            .content {
+                padding: 20px 16px;
+            }
+            .permission-table th, .permission-table td {
+                padding: 8px 10px;
+            }
+            .sdk-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Privacy Policy</h1>
-    <div class="date">July 29, 2025</div>
+<div class="container">
+    <header>
+        <h1>Privacy Policy</h1>
+        <p>Software Update: Apps Updates</p>
+        <div class="meta-info">
+            <span><strong>Developer:</strong> Umair_Afzal</span>
+            <span>•</span>
+            <span><strong>Effective Date:</strong> August 18, 2026</span>
+        </div>
+    </header>
 
-    <p>This privacy policy applies to the <strong>Mic To Speaker: Bluetooth Mic</strong> app (hereby referred to as "Application") for iOS and Android mobile devices that was created by <strong>Umair Afzal</strong> (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".</p>
+    <div class="content">
+        <!-- Section 1 -->
+        <section>
+            <h2>1. Introduction</h2>
+            <p>Welcome to <strong>Software Update: Apps Updates</strong> ("we," "our," or "us"), developed and published by <strong>Umair_Afzal</strong>. We respect your privacy and are committed to protecting any personal data processed through your use of our Android application ("App").</p>
+            <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you download, install, and use <strong>Software Update: Apps Updates</strong>. Please read this document carefully. By installing or using our App, you acknowledge that you have read, understood, and agree to the practices described in this Privacy Policy.</p>
+            <div class="highlight-box">
+                <p><strong>Core Privacy Guarantee:</strong> Software Update: Apps Updates runs hardware tests and scans installed applications locally on your device. We do not store, host, or transmit your personal photos, videos, contacts, or sensitive communications to external servers.</p>
+            </div>
+        </section>
 
-    <h2>Information Collection and Use</h2>
-    <p>The Application collects basic technical information when you download and use it. This information may include:</p>
-    <ul>
-        <li>The pages/screens you visit within the Application</li>
-        <li>The time and date of your visit</li>
-        <li>The time spent on those screens</li>
-        <li>The operating system and version of your mobile device</li>
-    </ul>
-    <p><strong>The Application does not collect or access your device's location information.</strong></p>
+        <!-- Section 2 -->
+        <section>
+            <h2>2. Information Collection & Use</h2>
+            <p>We classify the information processed by our App into two main categories: non-personal technical data collected automatically, and permissions accessed locally to perform core functionality.</p>
 
-    <p>The Service Provider may use collected information to improve the app experience or contact users with important updates and notices. However, no personally identifiable information is collected unless voluntarily provided (e.g., through contact forms or email).</p>
+            <h3>A. Information Processed Locally on Your Device</h3>
+            <p>To provide update detection, application management, storage optimization, and phone hardware diagnostics, the App evaluates system data on-device. This data remains on your physical hardware and is not uploaded to our infrastructure.</p>
 
-    <h2>Third Party Access</h2>
-    <p>Only aggregated, anonymized data is periodically transmitted to external services to help improve the Application. The Service Provider may share your information as described below:</p>
-    <ul>
-        <li>With trusted third-party service providers who support the app's functionality</li>
-        <li>As required by law, such as to comply with a subpoena or similar legal process</li>
-        <li>When necessary to investigate or prevent potential fraud or security threats</li>
-    </ul>
+            <h3>B. Automatically Collected Technical Information</h3>
+            <p>To support advertising, perform error reporting, and analyze overall stability, third-party analytics and ad network services integrated into the App may automatically collect non-personally identifiable technical information, including:</p>
+            <ul>
+                <li>Device information (e.g., device model, manufacturer, operating system version, system language, screen resolution).</li>
+                <li>Network & connectivity status (e.g., IP address, general country/city level location derived from IP).</li>
+                <li>Device identifiers (e.g., Google Android Advertising ID / GAID).</li>
+                <li>App usage & performance metrics (e.g., launch frequency, feature interaction, session duration, crash logs, diagnostic traces).</li>
+            </ul>
 
-    <p>This Application uses third-party services that may collect information used to identify you. Please refer to their privacy policies for more information:</p>
-    <ul>
-        <li><a href="https://policies.google.com/privacy" target="_blank">AdMob</a></li>
-        <li><a href="https://firebase.google.com/policies/analytics" target="_blank">Google Analytics for Firebase</a></li>
-        <li><a href="https://firebase.google.com/support/privacy/" target="_blank">Firebase Crashlytics</a></li>
-    </ul>
+            <h3>C. Information Provided Voluntarily</h3>
+            <p>If you contact us directly for customer support or feedback via email, we will receive your name, email address, and the contents of your inquiry. We use this information strictly to resolve your request and improve our App.</p>
+        </section>
 
-    <h2>Opt-Out Rights</h2>
-    <p>You can stop all collection of information by uninstalling the Application. Use the standard uninstall process on your mobile device or via the Apple App Store or Google Play Store.</p>
+        <!-- Section 3 -->
+        <section>
+            <h2>3. App Permissions & Purpose</h2>
+            <p>To deliver its core software management and phone testing features, <strong>Software Update: Apps Updates</strong> requests specific Android system permissions. Below is a detailed explanation of each permission requested and why it is necessary:</p>
 
-    <h2>Data Retention Policy</h2>
-    <p>The Service Provider retains user-provided data for as long as the app is being used and for a reasonable time thereafter. If you would like your data deleted, please contact: <a href="mailto:Umairafzal10@yahoo.com">Umairafzal10@yahoo.com</a> or <a href="mailto:kineticsolutions.io@gmail.com">kineticsolutions.io@gmail.com</a></p>
+            <table class="permission-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Permission Name</th>
+                        <th>Purpose & Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3"><strong>App Management & Diagnostics</strong></td>
+                        <td><span class="code-tag">QUERY_ALL_PACKAGES</span></td>
+                        <td>Allows the App to scan and list all installed applications so you can verify available updates, inspect package info, and manage installed software.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-tag">REQUEST_DELETE_PACKAGES</span></td>
+                        <td>Allows you to initiate uninstallation of selected user apps directly through standard Android system confirmation dialogs.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-tag">PACKAGE_USAGE_STATS</span></td>
+                        <td>Used (strictly with your explicit permission) to calculate and display app usage frequency and usage time statistics.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>Storage & Media Analysis</strong></td>
+                        <td><span class="code-tag">READ_MEDIA_IMAGES</span><br><span class="code-tag">READ_MEDIA_VIDEO</span><br><span class="code-tag">READ_MEDIA_AUDIO</span></td>
+                        <td>Used locally to analyze storage usage breakdown and display space occupied by media categories. Personal media files are never uploaded or read externally.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-tag">READ_EXTERNAL_STORAGE</span><br><span class="code-tag">WRITE_EXTERNAL_STORAGE</span></td>
+                        <td>Used on applicable Android versions to display total and free storage metrics and manage residual temporary files locally.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>Network & Wi-Fi Tests</strong></td>
+                        <td><span class="code-tag">INTERNET</span><br><span class="code-tag">ACCESS_NETWORK_STATE</span></td>
+                        <td>Required to verify online update availability, fetch app release information, and serve advertisements.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-tag">ACCESS_WIFI_STATE</span><br><span class="code-tag">CHANGE_WIFI_STATE</span></td>
+                        <td>Required to run Wi-Fi diagnostic modules and connectivity tests inside the hardware test suite.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Notifications</strong></td>
+                        <td><span class="code-tag">POST_NOTIFICATIONS</span></td>
+                        <td>Delivers system update reminders and diagnostic alerts (enabled only with your consent).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Device & Location Diagnostics</strong></td>
+                        <td><span class="code-tag">READ_PHONE_STATE</span><br><span class="code-tag">ACCESS_FINE_LOCATION</span><br><span class="code-tag">ACCESS_COARSE_LOCATION</span></td>
+                        <td>Used to display technical device details (e.g., SIM state, network generation) and run temporary hardware GPS sensor tests. Location data is never tracked continuously or shared.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hardware Testing Tools</strong></td>
+                        <td><span class="code-tag">CAMERA</span><br><span class="code-tag">RECORD_AUDIO</span><br><span class="code-tag">VIBRATE</span><br><span class="code-tag">BLUETOOTH_CONNECT</span></td>
+                        <td>Utilized exclusively for diagnostic tests (e.g., Flashlight/Camera test, Microphone acoustic test, Vibration test, Bluetooth connectivity test).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Background Operation</strong></td>
+                        <td><span class="code-tag">FOREGROUND_SERVICE</span></td>
+                        <td>Ensures multi-app scanning or device diagnostic processes complete reliably in the background while displaying an active status notification.</td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <h2>Children</h2>
-    <p>This Application is not intended for children under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13. If such information is discovered, it will be deleted promptly. Parents or guardians who become aware of their child's data being collected should contact the Service Provider.</p>
+            <h3>Accessibility Service Permission</h3>
+            <p>Some utility tools within the App may request the <strong>Accessibility Service Permission</strong>. When granted, this permission is used solely to facilitate interactive UI functions (such as displaying quick shortcuts, overlay status indicators, or custom visual bars). We <strong>never</strong> use Accessibility Services to collect typed keylogs, read personal messages, monitor browsing history, or harvest sensitive personal data. You can enable or disable this permission at any time via Android Settings: <em>Settings → Accessibility → Software Update: Apps Updates → Toggle Off</em>.</p>
+        </section>
 
-    <h2>Security</h2>
-    <p>The Service Provider takes reasonable security measures to protect user information, including physical, electronic, and procedural safeguards.</p>
+        <!-- Section 4 -->
+        <section>
+            <h2>4. Third-Party Advertising & Analytics SDKs</h2>
+            <p>We integrate third-party Software Development Kits (SDKs) to display advertisements, analyze application performance, and monitor stability. These third parties may collect device identifiers and usage data in accordance with their respective privacy policies.</p>
 
-    <h2>Changes</h2>
-    <p>This Privacy Policy may be updated from time to time. You are advised to review this page periodically for any changes. Continued use of the Application implies your acceptance of the updated terms.</p>
+            <h3>A. Advertising & Monetization Partners</h3>
+            <div class="sdk-grid">
+                <div class="sdk-card">
+                    <span>Google AdMob & Ads</span>
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>Meta Audience Network</span>
+                    <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>AppLovin</span>
+                    <a href="https://www.applovin.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>Unity Ads & ironSource</span>
+                    <a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>InMobi</span>
+                    <a href="https://www.inmobi.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>Mintegral</span>
+                    <a href="https://www.mintegral.com/en/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>Liftoff / Vungle</span>
+                    <a href="https://vungle.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>Pangle (ByteDance)</span>
+                    <a href="https://www.pangle.cn/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+            </div>
 
-    <h2>Your Consent</h2>
-    <p>By using the Application, you consent to the collection and use of information as outlined in this policy.</p>
+            <h3>B. Analytics, Performance & Diagnostics</h3>
+            <div class="sdk-grid">
+                <div class="sdk-card">
+                    <span>Firebase Analytics & Crashlytics</span>
+                    <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>Google Analytics</span>
+                    <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+                <div class="sdk-card">
+                    <span>Adjust (Attribution)</span>
+                    <a href="https://www.adjust.com/terms/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+            </div>
+        </section>
 
-    <h2>Contact Us</h2>
-    <p>If you have any questions or concerns about this Privacy Policy, please contact us at: <a href="mailto:Umairafzal10@yahoo.com">Umairafzal10@yahoo.com</a> or <a href="mailto:kineticsolutions.io@gmail.com">kineticsolutions.io@gmail.com</a></p>
+        <!-- Section 5 -->
+        <section>
+            <h2>5. Data Disclosure & Sharing</h2>
+            <p><strong>We do not sell, rent, or trade your personal data.</strong> We disclose information only under the following limited circumstances:</p>
+            <ul>
+                <li><strong>Legal Compliance:</strong> When required by law, subpoena, or governmental regulation to protect legal rights and prevent fraud or security breaches.</li>
+                <li><strong>Service Providers:</strong> To trusted third-party analytics and ad network vendors as outlined in Section 4, strictly for operating, securing, and monetizing the App.</li>
+                <li><strong>Business Transfers:</strong> In connection with any merger, acquisition, or sale of developer assets, provided the acquiring party agrees to honor the commitments in this policy.</li>
+            </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section>
+            <h2>6. Children's Privacy</h2>
+            <p><strong>Software Update: Apps Updates</strong> is designed for general audiences and is not directed to children under the age of 13 (or under 16 in the European Economic Area). We do not knowingly collect personal information from children. If you are a parent or legal guardian and believe that your child has provided us with personal information, please contact us at <a href="mailto:developer.umairafzal@gmail.com">developer.umairafzal@gmail.com</a> so we can promptly take appropriate steps to remove such data.</p>
+        </section>
+
+        <!-- Section 7 -->
+        <section>
+            <h2>7. Privacy Rights (GDPR & CCPA/CPRA)</h2>
+            <p>Depending on your geographic location, you may have specific privacy rights regarding your data:</p>
+            <ul>
+                <li><strong>General Data Protection Regulation (GDPR) - EEA/UK Users:</strong> You have the right to request access to, correction of, or deletion of your personal data; object to or restrict processing; and request data portability. Where processing is based on consent, you may withdraw your consent at any time.</li>
+                <li><strong>California Consumer Privacy Act (CCPA/CPRA) - California Residents:</strong> You have the right to know what personal data is collected, request deletion of your personal data, opt out of the sale or sharing of personal data, and receive non-discriminatory treatment.</li>
+                <li><strong>Opting Out of Targeted Advertising:</strong> You can opt out of personalized interest-based advertising on your Android device by navigating to <em>Settings → Google → Ads → Opt out of Ads Personalization</em> or <em>Reset advertising ID</em>.</li>
+            </ul>
+        </section>
+
+        <!-- Section 8 -->
+        <section>
+            <h2>8. Data Security & Retention</h2>
+            <p>We implement appropriate technical, physical, and administrative security measures to protect technical data against unauthorized access, loss, or alteration. We retain non-personal technical logs only for as long as necessary to fulfill the purposes set out in this Privacy Policy, after which the data is deleted or anonymized.</p>
+        </section>
+
+        <!-- Section 9 -->
+        <section>
+            <h2>9. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy periodically to reflect changes in legal requirements or app functionalities. Any modifications will be posted on this page with an updated "Effective Date." We encourage you to review this Privacy Policy regularly to remain informed about how we safeguard your information.</p>
+        </section>
+
+        <!-- Section 10 -->
+        <section>
+            <h2>10. Contact Us</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+            <div class="contact-box">
+                <p><strong>Developer / Account Name:</strong> Umair_Afzal</p>
+                <p><strong>App Title:</strong> Software Update: Apps Updates</p>
+                <p><strong>Support Email:</strong> <a href="mailto:developer.umairafzal@gmail.com">developer.umairafzal@gmail.com</a></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Umair_Afzal. All rights reserved. | Software Update: Apps Updates</p>
+    </footer>
+</div>
 
 </body>
 </html>
